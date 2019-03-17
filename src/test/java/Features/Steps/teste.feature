@@ -14,7 +14,7 @@ Feature: Teste API do facebook
     And o sistema e autenticado com sucesso
 
   Scenario: O usuario realiza um post de uma mensagem em sua pagina
-    Given O usuario possui uma autenticacao com um token valido
+    Given O usuario possui um token valido
     When Enviar uma requisicao para "https://graph.facebook.com/me/feed"
     And Postar a mensagem "{\"message\":\"Desafio Sensedia Api\"}" em sua pagina
     Then A resposta do sistema deve ser 200
