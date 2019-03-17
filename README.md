@@ -9,7 +9,7 @@ Desafio Sensedia api Facebook
  - Realizar uma alteração na mensagem postada acima.
 
 ### Configuracoes
-Para rodar os teste será necessário a instalacao dos plugins:
+Para rodar os testes foram ultilizados os seguintes plugins:
 
     - Rest Assured
     - JUnit
@@ -59,13 +59,6 @@ https://mvnrepository.com/
 - Rodar a classe Steps
 - Resultado será exibido no console
 
-
-## Dependencias
-
-* [Junir]
-* [RestAssured]
-* [Gherkin]
-* [Cucumber]
 
 
 ## Autor
