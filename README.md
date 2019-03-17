@@ -2,9 +2,10 @@
 
 Desafio Sensedia api Facebook
 
+
 ## Requisitos
 
- - O usuário deve realizar a autenticação no facebook.
+ - O usuário deve realizar a autenticação na api.
  - O usuário deve postar uma mensagem na página desse mesmo usuário.
  - Realizar uma alteração na mensagem postada acima.
 
@@ -16,6 +17,17 @@ Para rodar os testes foram ultilizados os seguintes plugins:
     - cucumber
 
 https://mvnrepository.com/
+
+
+###Casos de Teste (BDD):
+
+###Pré - Condições:
+Criar um APP em https://developers.facebook.com
+Atribuir um usuário de teste com as permissões para realização das requisições
+Gerar um token de acesso do usuário, com vencimento estendido em https://developers.facebook.com/tools/debug/accesstoken/
+Criar uma página para o usuário de teste, concedendo as permissões necessárias para realização das requisições
+Gerar um token de acesso da página, com vencimento estendido em https://developers.facebook.com/tools/debug/accesstoken/
+
 
 ### Casos de teste
 
