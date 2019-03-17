@@ -19,9 +19,9 @@ Para rodar os testes foram ultilizados os seguintes plugins:
 https://mvnrepository.com/
 
 
-###Casos de Teste (BDD):
+### Casos de Teste (BDD):
 
-###Pré - Condições:
+### Pré - Condições:
 Criar um APP em https://developers.facebook.com
 Atribuir um usuário de teste com as permissões para realização das requisições
 Gerar um token de acesso do usuário, com vencimento estendido em https://developers.facebook.com/tools/debug/accesstoken/
