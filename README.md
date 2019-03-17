@@ -22,11 +22,11 @@ https://mvnrepository.com/
 ### Casos de Teste (BDD):
 
 ### Pré - Condições:
-Criar um APP em https://developers.facebook.com
-Atribuir um usuário de teste com as permissões para realização das requisições
-Gerar um token de acesso do usuário, com vencimento estendido em https://developers.facebook.com/tools/debug/accesstoken/
-Criar uma página para o usuário de teste, concedendo as permissões necessárias para realização das requisições
-Gerar um token de acesso da página, com vencimento estendido em https://developers.facebook.com/tools/debug/accesstoken/
+    Criar um APP em https://developers.facebook.com
+    Atribuir um usuário de teste com as permissões para realização das requisições
+    Gerar um token de acesso do usuário, com vencimento estendido em https://developers.facebook.com/tools/debug/accesstoken/
+    Criar uma página para o usuário de teste, concedendo as permissões necessárias para realização das requisições
+    Gerar um token de acesso da página, com vencimento estendido em https://developers.facebook.com/tools/debug/accesstoken/
 
 
 ### Casos de teste
