@@ -22,7 +22,7 @@ Feature: Teste API do facebook
 
   Scenario: O usuario deve fazer uma alteracao no post realizado em sua pagina
     Given O usuario precisa realizar uma alteracao em seu post
-    When Enviar uma requisicao para "https://graph.facebook.com/me/"
+    When Enviar uma requisicao para "https://graph.facebook.com/me/feed"
     And Alterar a mensagem para "{\"message\":\"Desafio Sesedia api 2019 Eduardo\"}"
     Then A resposta do sistema deve ser 200
     And O post deve ser alterado

@@ -42,10 +42,10 @@ https://mvnrepository.com/
     Então A resposta do sistema deve ser 200
     E O sistema é autenticado com sucesso
 
-### Caso de teste 03: Post na pagina
+### Caso de teste 03: Post no feed
     Dado O usuario possui uma autenticacao com um token valido
     Quando Enviar uma requisicao para "https://graph.facebook.com/me/feed"
-    E Postar a mensagem:"Desafio Sensedia Api em sua pagina
+    E Postar a mensagem:"Desafio Sensedia Api 2019 em sua pagina
     Então deverá retornar o status 200
     E a publicação deverá ser realizada
 
@@ -53,7 +53,7 @@ https://mvnrepository.com/
 ### Caso de teste 04: Alteração do post realizado
     Dado O usuario precisa realizar uma alteracao em seu post
     Quando Enviar uma requisicao para "https://graph.facebook.com/"
-    E Alterar a mensagem para:"Desafio Sesedia api 12345"
+    E Alterar a mensagem para:"Desafio Sesedia api 2019 Eduardo"
     Então deverá retornar o status 200
     E a publicação deverá ser alterada
 
