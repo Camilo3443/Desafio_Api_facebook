@@ -20,20 +20,6 @@ public class Screens {
 
 
     @Test
-    public void verifyAuthentication ( ) throws Exception {
-
-        Response resp = RestAssured.get(urlTokenAcces + authToken);
-
-        if (resp.getStatusCode() == 200) {
-
-            System.out.println(resp.getStatusCode() + " Sucesso");
-        } else {
-            System.out.println(resp.getStatusCode() + "Erro");
-        }
-        Assert.assertEquals(200, resp.getStatusCode());
-    }
-
-    @Test
     public void verifyAuthenticationInvalid ( ) throws Exception {
 
 
@@ -46,6 +32,20 @@ public class Screens {
             System.out.println(resp.getStatusCode() + "Erro");
         }
         Assert.assertEquals(400, resp.getStatusCode());
+    }
+
+    @Test
+    public void verifyAuthentication ( ) throws Exception {
+
+        Response resp = RestAssured.get(urlTokenAcces + authToken);
+
+        if (resp.getStatusCode() == 200) {
+
+            System.out.println(resp.getStatusCode() + " Sucesso");
+        } else {
+            System.out.println(resp.getStatusCode() + "Erro");
+        }
+        Assert.assertEquals(200, resp.getStatusCode());
     }
 
 
@@ -86,12 +86,13 @@ public class Screens {
             System.out.println(changeReq.getStatusCode() + "Erro");
         }
     }
+
     @Test
-    public void deletePostTimeLine() {
+    public void deletePostTimeLine ( ) {
 
         ResponsepostTimeLine responsePageTimeLine = postTimeLine();
 
-        String updatedUrl = responsePageTimeLine.postID +  + authToken;
+        String updatedUrl = responsePageTimeLine.postID + authToken;
         Response res =
                 given()
                         .when()
@@ -100,4 +101,4 @@ public class Screens {
         System.out.println(res.getStatusCode());
         Assert.assertEquals(res.getStatusCode(), 200);
     }
-    }
+}

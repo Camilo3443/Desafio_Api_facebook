@@ -10,7 +10,7 @@ Desafio Sensedia api Facebook
  - Realizar uma alteração na mensagem postada acima.
 
 ### Configuracoes
-Para rodar os testes foram ultilizados os seguintes plugins:
+Para rodar os testes foram ultilizados as seguintes dependencias:
 
     - Rest Assured
     - JUnit
