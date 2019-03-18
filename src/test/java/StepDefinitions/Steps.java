@@ -25,9 +25,11 @@ public class Steps {
         private String authToken;
         private String useURL;
         private String postID;
+        private String Menssagem;
         Response reqResp;
         private String urlTokenAcces = "https://graph.facebook.com/me/?access_token=";
         private String graphUrl = "https://graph.facebook.com/";
+        private Object idPost;
 
         //passo 1
         @Given("^O usuario possui um token invalido$")
@@ -45,9 +47,9 @@ public class Steps {
         @Then("^A resposta do sistema deve ser 400$")
         public void a_resposta_do_sistema_deve_ser_400( ) throws Throwable {
             if (reqResp.getStatusCode() == 400) {
-                System.out.println(reqResp.getStatusCode() + " - sucessful to connect");
+                System.out.println(reqResp.getStatusCode() + " - sucesso");
             } else {
-                System.out.println(reqResp.getStatusCode() + " - fail - check your credentials");
+                System.out.println(reqResp.getStatusCode() + " - Erro");
             }
             Assert.assertEquals(400, reqResp.getStatusCode());
             throw new PendingException();
@@ -66,12 +68,10 @@ public class Steps {
         @Then("^A resposta do sistema deve ser 200$")
         public void a_resposta_do_sistema_deve_ser_20( ) throws Throwable {
             if (reqResp.getStatusCode() == 200) {
-                System.out.println(reqResp.getStatusCode() + " - sucessful to connect");
+                System.out.println(reqResp.getStatusCode() + " - Sucesso");
             } else {
-                System.out.println(reqResp.getStatusCode() + " - fail - check your credentials");
+                System.out.println(reqResp.getStatusCode() + " - Erro");
             }
-            Assert.assertEquals(200, reqResp.getStatusCode());
-            throw new PendingException();
 
         }
 
@@ -85,64 +85,79 @@ public class Steps {
 
 
         @And("^Postar a mensagem \"(.*)\" em sua pagina$")
-        public void postar_a_mensagem_somethingmessagesomethingdesafio_sensedia_apisomething_em_sua_pagina(String strArg1, String strArg2, String strArg3) throws Throwable {
+        public void postar_a_mensagem_messagedesafio_sensedia_api_em_sua_pagina(String menssagem) throws Throwable {
 
-
+            Menssagem = menssagem;
             Response postReq = given()
                     .contentType(ContentType.JSON)
-                    .body("{\"message\":\"TESTEAPI123\"}")
+                    .body("{\"message\":\"Desafio Sensdia api\"}")
                     .when()
                     .post(urlTokenAcces + authToken);
 
             if (postReq.getStatusCode() == 200) {
 
-                System.out.println(postReq.getStatusCode() + "sucessful");
+                System.out.println(postReq.getStatusCode() + "Sucesso");
                 this.postID = postReq.
                         then().
                         contentType(ContentType.JSON).extract().path("id");
-                System.out.println(this.postID + "- id.post saved");
+                System.out.println(this.postID + "- id salvo");
             } else {
-                System.out.println(postReq.getStatusCode() + " - verify your request");
+                System.out.println(postReq.getStatusCode() + "Erro");
             }
         }
-        }
-
         @And("^O ID do post deve ser salvo$")
         public void o_id_do_post_deve_ser_salvo() throws Throwable {
+
+            this.idPost = reqResp.
+                    then().
+                    contentType(ContentType.JSON).extract().path("id");
+            System.out.println(this.idPost + "- id salvo");
             throw new PendingException();
         }
+
 
         //passo 4
         @Given("^O usuario precisa realizar uma alteracao em seu post$")
         public void o_usuario_precisa_realizar_uma_alteracao_em_seu_post() throws Throwable {
+            this.authToken = "EAADFsoUp0ckBAMPEA92wZAicyMWbeZCKyEJ1g5gNdp2X6GquL6e4taJtCo9sjv3xvyvhhZAV2BZC7D1a5x1AKjdZA71fU5b5gbiqpvHYrleFl2tObwoZBEvxvcPAD3QraCyVhTGJjrQdfxe3ZAedHbzecICar76NuZCo0iLbCnbuhQ6mcPJpNbe7fsE36ZC6xHN314ZCF7NFR5fgZDZD";
+
             throw new PendingException();
         }
 
         @And("^Alterar a mensagem para \"(.*)\"$")
         public void alterar_a_mensagem_para_something(String strArg1, String strArg2, String strArg3) throws Throwable {
-            throw new PendingException();
+
+            Response changeReq = given()
+                    .contentType(ContentType.JSON)
+                    .body("{\"message\":\"Desafio Sensedia 2019\"}")
+                    .when()
+                    .put(graphUrl + postID + "/?access_token=" + authToken);
+
+            if (changeReq.getStatusCode() == 200) {
+                System.out.println(changeReq.getStatusCode() + "Sucesso);
+            } else {
+                System.out.println(changeReq.getStatusCode() + "Erro");
+            }
+
+
+            @And("^O post deve ser alterado$")
+            public void o_post_deve_ser_alterado () throws Throwable {
+                reqResp = given()
+                        .contentType(ContentType.JSON)
+                        .body("{\"message\":\"esafio Sensedia 2019 Eduardo\"}")
+                        .when()
+                        .put(graphUrl + idPost + authToken);
+
+                if (reqResp.getStatusCode() == 200) {
+                    System.out.println(reqResp.getStatusCode() + "Sucesso ");
+                } else {
+                    System.out.println(reqResp.getStatusCode() + "Erro");
+                }
+                Assert.assertEquals(200, reqResp.getStatusCode());
+
+                throw new PendingException();
+            }
+
         }
-
-
-        @And("^O post deve ser alterado$")
-        public void o_post_deve_ser_alterado() throws Throwable {
-            throw new PendingException();
-        }
-
-        //passo 5
-        @Given("^O usuario precisa deletar a mensagem postada em sua pagina$")
-        public void o_usuario_precisa_deletar_a_mensagem_postada_em_sua_pagina() throws Throwable {
-            throw new PendingException();
-        }
-
-        @When("^Enviar uma requisicao utilizando delete para \"(.*)\"$\"")
-        public void enviar_uma_requisicao_utilizando_delete_para_something(String strArg1) throws Throwable {
-            throw new PendingException();
-        }
-
-        @And("^O Post deve ser deletado$")
-        public void o_post_deve_ser_deletado() throws Throwable {
-            throw new PendingException();
-        }
-
+    }
 }
